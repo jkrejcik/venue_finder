@@ -45,12 +45,8 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 gem "sassc-rails"
 
-
-# Use simple form to generate forms
-gem "simple_form", github: "heartcombo/simple_form"
-
-# Use faker to seed DB
-gem 'faker'
+# Use Devise gem to create Users model
+gem "devise"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
