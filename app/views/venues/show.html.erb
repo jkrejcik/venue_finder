@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container col-8">
     <div>
       <h1><%= @venue.name %></h1>
     </div> 
@@ -9,4 +9,9 @@
         <p>Price: €<%= @venue.price %></p>
     </div> 
     <br>
+
+    <div class="d-flex justify-content-between">
+      <%= link_to "Edit Venue", edit_venue_path(@venue), class: "btn btn-warning" %>
+      <%= link_to "Delete", venue_path(@venue), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-secondary" %>
+    </div>
 </div>
