@@ -1,0 +1,11 @@
+<div class="container">
+    <% @venues.each do |venue| %>
+    <div>
+      <%= venue.name %>
+    </div> 
+    <div> 
+      <%= link_to "Find out more...", venue_path(venue), class: "btn btn-primary"%>
+    </div> 
+    <br>
+    <% end %>
+</div>
