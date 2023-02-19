@@ -1,0 +1,12 @@
+<div class="col-8">
+    <%= simple_form_for(@venue) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <div class="d-flex justify-content-between">
+        <%= f.input :capacity %>
+        <%= f.input :price %>
+    </div>
+    <%= f.submit :Submit %>
+    <% end %>
+</div>
