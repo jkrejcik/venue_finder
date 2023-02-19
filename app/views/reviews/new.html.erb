@@ -1,13 +1,13 @@
-<div class="container col-8 justify-content-center">
+<div class="container d-flex col-12">
+  <div class="col-4">
+    <%= link_to "Back to Reviews", venue_reviews_path(@venue), class: "btn btn-primary" %>
+  </div>
+  <div class="col-8 justify-content-center">
     <div>
-        <h1>Leave a review for <em><%= @venue.name %></em></h1>
+        <h1>Review: <em><strong><%= @venue.name %></strong></em></h1>
     </div>
+    
+    <%= render 'form', review: @review %>
 
-    <%= simple_form_for(@review) do |f| %>
-    <%= f.input :comment %>
-    <%= f.input :rating %>
-    <%= f.submit :submit %>
-    <% end %>
-
-    <%= link_to "Back to Venue", venue_path(@venue), class: "btn btn-primary" %>
+  </div>
 </div>

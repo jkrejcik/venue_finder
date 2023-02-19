@@ -1,0 +1,10 @@
+<%= simple_form_for [@venue, @review] do |f| %>
+<%= f.input :title %>
+<%= f.input :comment %>
+<div class="d-flex justify-content-between">
+    <%= f.input :rating %>
+    <div class="align-self-center">
+    <%= f.submit "Leave Review" %>
+    </div>
+</div>
+<% end %>

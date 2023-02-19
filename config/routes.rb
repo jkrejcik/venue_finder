@@ -8,9 +8,11 @@ Rails.application.routes.draw do
 
   resources :venues do
     resources :bookings, only: %i[new create]
-    resources :reviews, only: %i[index show new]
+    resources :reviews, only: %i[index new create]
   end
+  
   # As a renter I can see all existing bookings
   resources :bookings, only: [:index]
   resources :bookings, only: [:destroy]
+
 end
