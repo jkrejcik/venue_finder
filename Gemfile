@@ -48,6 +48,9 @@ gem "sassc-rails"
 # Use Devise gem to create Users model
 gem "devise"
 
+# Faker gem to help seed some bookings / reviews
+gem 'faker'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
