@@ -1,0 +1,14 @@
+<div class="container">
+    <% @venues.each do |venue| %>
+    <div>
+      <%= venue.name %>
+    </div> 
+    <div> 
+      <%= link_to "Find out more...", venue_path(venue), class: "btn btn-secondary"%>
+    </div> 
+    <br>
+    <% end %>
+
+    <%= link_to "List Venue", new_venue_path, class: "btn btn-primary" %>
+    <%# <%= link_to "View Your Listings (Doesn't work yet)", venues_path(current_user), class: "btn btn-warning" %>
+</div>
