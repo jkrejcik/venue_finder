@@ -1,0 +1,16 @@
+<div class="container col-8 justify-content-center">
+    <div>
+        <h1>Reviews for <em><%= @venue.name %></em></h1>
+    </div>
+
+    <div>
+      <% @reviews.each do |review| %>
+      <%= review.comment %>
+      <% end %>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <%= link_to "Back to Venue", venue_path(@venue), class: "btn btn-primary" %>
+      <%= link_to "Leave a Review", new_venue_review_path(@venue), class: "btn btn-info" %>
+    </div>
+</div>
