@@ -1,14 +1,21 @@
-<div class="container">
-    <% @venues.each do |venue| %>
-    <div>
-      <%= venue.name %>
-    </div> 
-    <div> 
-      <%= link_to "Find out more...", venue_path(venue), class: "btn btn-secondary"%>
-    </div> 
-    <br>
-    <% end %>
-
-    <%= link_to "List Venue", new_venue_path, class: "btn btn-primary" %>
+<div class="d-flex">
+  <div class="container m-2">
+        <% @venues.each do |venue| %>
+        <div class="bg-light col-12">
+          <div class="p-2 mb-2">
+            <div>
+            <h2><%= venue.name %></h2>
+            </div>
+            <div class="d-flex justify-content-between"> 
+              <p><%= venue.description %></p>
+              <%= link_to "Find out more...", venue_path(venue), class: "btn btn-secondary align-self-start"%>
+            </div> 
+          </div>
+        </div>
+        <% end %>
+  </div>
+  <div class="col-3 p-2">
+    <%= link_to "List Venue", new_venue_path, class: "btn btn-primary m-1" %>
     <%# <%= link_to "View Your Listings (Doesn't work yet)", venues_path(current_user), class: "btn btn-warning" %>
+  </div>
 </div>
