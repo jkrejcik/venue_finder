@@ -7,6 +7,10 @@
       <% @reviews.each do |review| %>
       <h5><%= review.title %></h5>
       <p><%= review.comment %></p>
+      <p>Contributed by: 
+        <%= User.find(Booking.find(review.booking_id).user_id).first_name %>
+        <%= User.find(Booking.find(review.booking_id).user_id).last_name %>
+      <p>
       <% end %>
     </div>
 
