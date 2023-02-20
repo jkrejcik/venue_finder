@@ -36,6 +36,11 @@ class VenuesController < ApplicationController
     redirect_to venues_path, status: :see_other
   end
 
+  def my_venues
+    @venues = Venue.where(user:current_user)
+    render :index
+  end
+
   private
 
   def set_venue
