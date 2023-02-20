@@ -1,0 +1,13 @@
+<div class="container d-flex col-12">
+  <div class="col-4">
+    <%= link_to "Back to Reviews", venue_reviews_path(@venue), class: "btn btn-primary" %>
+  </div>
+  <div class="col-8 justify-content-center">
+    <div>
+        <h1>Review: <em><strong><%= @venue.name %></strong></em></h1>
+    </div>
+    
+    <%= render 'form', review: @review %>
+
+  </div>
+</div>
