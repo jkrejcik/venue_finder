@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_venue, only: %i[index new create]
   before_action :set_booking, only: %i[new create]
 
   def index
-    @reviews = Review.all.select { |review| review.venue == @venue }
+    @reviews = Review.where(venue:@venue)
   end
 
   def new

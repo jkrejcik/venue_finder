@@ -1,5 +1,7 @@
 class VenuesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
   before_action :set_venue, only: %i[show edit update destroy]
+
 
   def index
     @venues = Venue.all
