@@ -1,4 +1,4 @@
-<div class="col-8">
+<div class="col-10">
     <%= simple_form_for(@venue) do |f| %>
     <%= f.input :name %>
     <%= f.input :address %>
@@ -6,6 +6,9 @@
     <div class="d-flex justify-content-between">
         <%= f.input :capacity %>
         <%= f.input :price %>
+    </div>
+        <%= f.input :available_start_date, label: "Start date:" %>
+        <%= f.input :available_end_date, label: "End date:" %>
     </div>
     <%= f.submit :Submit %>
     <% end %>
