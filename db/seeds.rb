@@ -51,18 +51,29 @@ users = [user1, user2]
   puts "Venue #{venue.id} created."
 end
 
-# Bookings created
-puts "Creating Bookings"
+# Booking creation
+puts "Creating 1 Booking for user Jaro with Venue 1"
 
+booking = Booking.new
+booking.user = user3
+# Can happen that he will book same place few times
+booking.venue = Venue.find(1)
+booking.booking_start_date = "2023-03-01"
+booking.booking_end_date = "2023-03-30"
+booking.save
+puts "Booking #{booking.id} created."
+
+# Reviews creation
+puts "Creating 4 reviews for user Jaro"
 4.times do
-  booking = Booking.new
-
-  # All bookings are created by Jaro
-  booking.user = user3
-  # Can happen that he will book same place few times
-  booking.venue = Venue.find(rand(1..9))
-  booking.save
-  puts "Booking #{booking.id} created."
+  review = Review.new
+  review.venue = Venue.find(1)
+  review.title = Faker::Company.buzzword
+  review.comment = Faker::Lorem.paragraph(sentence_count: 4)
+  review.rating = rand(1..5)
+  review.booking = booking
+  review.save
+  puts "Review #{review.id} created."
 end
 
 puts "Seeding completed"
