@@ -1,15 +1,18 @@
-<h1><%= current_user.first_name %>'s Bookings</h1>
-
-<% if @bookings.empty? %>
-  <p>You have no bookings 😢 </p>
-<% else %>
-  <ol>
-    <% @bookings.each do |booking| %>
-      <li>
-        <p><%= booking.venue.name %></p>
-        <p>Start date: <%= booking.booking_start_date %></p>
-        <p>End date: <%= booking.booking_end_date %></p>
+<div class="container">
+  <h1 class="mb-3"><%= current_user.first_name %>'s Bookings</h1>
+      <% if @bookings.empty? %>
+      <ol>
+      <p>You have no bookings 😢 </p>
+      <% else %>
+      <% @bookings.each do |booking| %>
+      <li class="card p-3 mb-2">
+        <h4 class="mb-3"><%= booking.venue.name %></h4>
+        <div class="d-flex justify-content-between">
+          <p>Start date: <em><%= booking.booking_start_date.strftime("%d %b, %Y") %></em></p>
+          <p>End date: <em><%= booking.booking_end_date.strftime("%d %b, %Y") %></em></p>
+        </div>
       </li>
     <% end %>
-  </ol>
-<% end %>
+    </ol>
+    <% end %>
+</div>
