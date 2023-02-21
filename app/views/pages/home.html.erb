@@ -5,7 +5,7 @@
 
 
   <div class="container">
-    <p1>Website created by Ronan, Jan and Jaro that will allow you to rent a venue.</p1>
+    <p>Website created by Ronan, Jan and Jaro that will allow you to rent a venue.</p>
       <% @venues.last(6).each do |venue| %>
       <div>
         <%= venue.name %>
@@ -15,5 +15,12 @@
       </div>
       <br>
       <% end %>
+    <% if user_signed_in? %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+      <% else %>
+        <%= link_to "Sign Up", new_user_registration_path %>
+      <% end %>
+
   </div>
 </div>
+
