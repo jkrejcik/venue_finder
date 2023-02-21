@@ -37,7 +37,7 @@ class VenuesController < ApplicationController
   end
 
   def my_venues
-    @venues = Venue.where(user:current_user)
+    @venues = Venue.where(user: current_user)
     render :index
   end
 
