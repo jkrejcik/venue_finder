@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_venue, only: %i[new create]
+  before_action :set_venue, only: %i[new create destroy]
 
   def new
     @booking = Booking.new
@@ -19,6 +19,11 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.where(user_id: current_user.id)
+  end
+
+  def destroy
+    @booking.destroy
+    redirect_to venue_path, status: :see_other
   end
 
   private
