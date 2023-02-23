@@ -22,10 +22,10 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Add Venue", new_venue_path, class: "dropdown-item" %>
               <%# My Venues need to show only current user venues %>
               <%= link_to "My Venues", my_venues_venues_path, class: "dropdown-item" %>
-              <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
