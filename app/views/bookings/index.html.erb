@@ -6,10 +6,13 @@
       <% else %>
       <% @bookings.each do |booking| %>
       <li class="card p-3 mb-2">
-        <h4 class="mb-3"><%= booking.venue.name %></h4>
+        <h4 class="mb-3"><%= link_to booking.venue.name, venue_path(booking.venue), class: "text-decoration-none" %></h4>
         <div class="d-flex justify-content-between">
           <p>Start date: <em><%= booking.booking_start_date.strftime("%d %b, %Y") %></em></p>
           <p>End date: <em><%= booking.booking_end_date.strftime("%d %b, %Y") %></em></p>
+        </div>
+        <div>
+          <%= link_to "Cancel Booking", venue_path(booking.venue), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-warning" %>
         </div>
       </li>
     <% end %>
