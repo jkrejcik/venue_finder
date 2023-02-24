@@ -1,0 +1,26 @@
+.venues {
+  .cards {
+    width: 1200px;
+    max-width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+
+    .card {
+      width: 220px;
+      img {
+        max-width:100%;
+        height: auto;
+      }
+    }
+    // Tablets
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    // Mobile phones
+    @media (max-width: 575px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
