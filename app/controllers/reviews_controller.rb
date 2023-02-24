@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   before_action :set_booking, only: %i[new create]
 
   def index
-    @reviews = Review.where(venue:@venue)
+    @reviews = Review.where(venue: @venue)
   end
 
   def new
