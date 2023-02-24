@@ -1,5 +1,10 @@
 .venues {
-  background-color: white;
+  .search {
+    width: 400px;
+    .form-control {
+      background-color: white;
+    }
+  }
   .cards {
     width: 1200px;
     max-width: 80%;

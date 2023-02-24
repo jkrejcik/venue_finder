@@ -1,27 +1,27 @@
 <div class="venues">
-
-  <%= form_with url: venues_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-
-    <div class="cards">
-      <% @venues.each do |venue| %>
-      <div class="card">
-        <%= link_to image_tag("https://source.unsplash.com/random/?venue"), venue_path(venue) %>
-        <h2><%= venue.name %></h2>
-        <div class="card-info">
-          <p><%= venue.address %></p>
-          <p>
-            <%= venue.available_start_date.strftime("%d %b") %> - <%= venue.available_end_date.strftime("%d %b") %>
-          </p>
-          <p>Max. capacity: <%=venue.capacity %></p>
-          <p>€ <%= venue.price %> day</p>
-        </div>
+  <div class="search my-5 container col-4">
+    <%= form_with url: venues_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="cards">
+    <% @venues.each do |venue| %>
+    <div class="card">
+      <%= link_to image_tag("https://source.unsplash.com/random/?venue"), venue_path(venue) %>
+      <h2><%= venue.name %></h2>
+      <div class="card-info">
+        <p><%= venue.address %></p>
+        <p>
+          <%= venue.available_start_date.strftime("%d %b") %> - <%= venue.available_end_date.strftime("%d %b") %>
+        </p>
+        <p>Max. capacity: <%=venue.capacity %></p>
+        <p>€ <%= venue.price %> day</p>
       </div>
-      <% end %>
     </div>
+    <% end %>
+  </div>
 </div>
