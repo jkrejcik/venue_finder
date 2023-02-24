@@ -1,21 +1,18 @@
-<div class="d-flex">
-  <div class="container m-2 justify-content-center">
-        <% @venues.each do |venue| %>
-        <div class="bg-light col-12">
-          <div class="p-2 mb-2">
-            <div>
-            <h2><%= venue.name %></h2>
-            </div>
-            <div class="d-flex justify-content-between">
-              <p><%= venue.description %></p>
-              <%= link_to "Find out more...", venue_path(venue), class: "btn btn-secondary align-self-start"%>
-            </div>
-          </div>
+<div class="venues">
+    <div class="cards">
+      <% @venues.each do |venue| %>
+      <div class="card">
+        <%= link_to image_tag("https://source.unsplash.com/random/?venue"), venue_path(venue) %>
+        <h2><%= venue.name %></h2>
+        <div class="card-info">
+          <p><%= venue.address %></p>
+          <p>
+            <%= venue.available_start_date.strftime("%d %b") %> - <%= venue.available_end_date.strftime("%d %b") %>
+          </p>
+          <p>Max. capacity: <%=venue.capacity %></p>
+          <p>€ <%= venue.price %> day</p>
         </div>
-        <% end %>
-  </div>
-  <div class="col-3 p-2">
-    <%= link_to "Register Venue", new_venue_path, class: "btn btn-primary m-1" %>
-    <%# <%= link_to "View Your Listings (Doesn't work yet)", venues_path(current_user), class: "btn btn-warning" %>
-  </div>
+      </div>
+      <% end %>
+    </div>
 </div>

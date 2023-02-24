@@ -1,0 +1,37 @@
+.venues {
+  background-color: white;
+  .cards {
+    width: 1200px;
+    max-width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+
+    .card {
+      width: 220px;
+      border: none;
+      img {
+        max-width:100%;
+        height: auto;
+        border-radius: 20px;
+      }
+      h2 {
+        margin-top: 10px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      p {
+        margin-bottom: 3px;
+      }
+    }
+    // Tablets
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    // Mobile phones
+    @media (max-width: 575px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
