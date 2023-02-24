@@ -1,4 +1,13 @@
 <div class="venues">
+
+  <%= form_with url: venues_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
     <div class="cards">
       <% @venues.each do |venue| %>
       <div class="card">
