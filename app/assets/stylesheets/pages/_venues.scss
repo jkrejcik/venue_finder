@@ -1,4 +1,5 @@
 .venues {
+  background-color: white;
   .cards {
     width: 1200px;
     max-width: 80%;
@@ -9,9 +10,19 @@
 
     .card {
       width: 220px;
+      border: none;
       img {
         max-width:100%;
         height: auto;
+        border-radius: 20px;
+      }
+      h2 {
+        margin-top: 10px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      p {
+        margin-bottom: 3px;
       }
     }
     // Tablets
