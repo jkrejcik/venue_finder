@@ -1,7 +1,10 @@
-<div class="">
-    <%= simple_form_for [@venue, @booking] do |f| %>
-    <%= f.input :booking_start_date %>
-    <%= f.input :booking_end_date %>
-    <%= f.submit :Submit %>
-    <% end %>
-</div>
+<%= form_for [@venue, @booking] do |f| %>
+
+  <%= f.label :booking_start_date, min: Date.today, class: "form-label" %>:
+  <%= f.date_field :booking_start_date, class: "form-control" %>
+
+  <%= f.label :booking_end_date, min: Date.tomorrow, class: "form-label" %>:
+  <%= f.date_field :booking_end_date, class: "form-control" %>
+
+  <%= f.submit class: "form-control btn btn-primary" %>
+<% end %>
