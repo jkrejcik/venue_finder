@@ -1,15 +1,32 @@
-<div class="col-10">
-    <%= simple_form_for(@venue) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :description %>
-    <div class="d-flex justify-content-between">
-        <%= f.input :capacity %>
-        <%= f.input :price %>
+<%= form_for @venue do |f| %>
+  <%= f.label :name, class: "form-label" %>:
+  <%= f.text_field :name, class: "form-control" %>
+
+
+  <%= f.label :address, class: "form-label" %>:
+  <%= f.text_field :address, class: "form-control" %>
+
+  <%= f.label :description, class: "form-label" %>:
+  <%= f.text_area :description, class: "form-control", rows: "3", placeholder: "Min. 6 characters" %>
+
+  <div class="d-flex justify-content-between mb-3">
+    <div>
+      <%= f.label :capacity, class: "form-label" %>:
+      <%= f.number_field :capacity, class: "form-control" %>
+
+      <%= f.label :price, class: "form-label" %>:
+      <%= f.number_field :price, class: "form-control" %>
     </div>
-        <%= f.input :available_start_date, label: "Start date:" %>
-        <%= f.input :available_end_date, label: "End date:" %>
+    <div class="d-flex align-items-center">
+      <div class="px-3">
+        <%= f.label :available_start_date, min: Date.today, class: "form-label" %>:
+        <%= f.date_field :available_start_date, class: "form-control" %>
+      </div>
+      <div class="px-3">
+        <%= f.label :available_end_date, min: Date.tomorrow, class: "form-label" %>:
+        <%= f.date_field :available_end_date, class: "form-control" %>
+      </div>
     </div>
-    <%= f.submit :Submit %>
-    <% end %>
-</div>
+  </div>
+  <%= f.submit class: "form-control btn btn-primary" %>
+<% end %>
