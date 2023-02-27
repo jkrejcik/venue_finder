@@ -16,6 +16,9 @@
 
       <%= f.label :price, class: "form-label" %>:
       <%= f.number_field :price, class: "form-control" %>
+
+      <%= f.label :photos, class: "form-label" %>:
+      <%= f.file_field :photos, multiple: true, class: "form-control" %>
     </div>
     <div class="d-flex align-items-center">
       <div class="px-3">

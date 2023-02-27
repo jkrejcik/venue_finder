@@ -11,15 +11,18 @@
   <div class="cards">
     <% @venues.each do |venue| %>
     <div class="card">
-      <%= link_to image_tag("https://source.unsplash.com/random/?venue"), venue_path(venue) %>
-      <h2><%= venue.name %></h2>
-      <div class="card-info">
-        <p><%= venue.address %></p>
-        <p>
+      <% if venue.photos.attached? %>
+        <%= link_to cl_image_tag(venue.photos.first.key, class: "card-img-top", height: 250, crop: :fill), venue_path(venue) %>
+      <% else %>
+        <%= link_to cl_image_tag("https://res.cloudinary.com/dtke2msby/image/upload/v1677529280/development/venue_img_placeholder_mtmrus.jpg", class: "card-img-top", height: 250, crop: :fill), venue_path(venue)%>
+      <% end %>
+      <div class="card-body px-0">
+        <h2><%= venue.name %></h2>
+        <p class="fw-lighter">
           <%= venue.available_start_date.strftime("%d %b") %> - <%= venue.available_end_date.strftime("%d %b") %>
         </p>
-        <p>Max. capacity: <%=venue.capacity %></p>
-        <p>€ <%= venue.price %> day</p>
+        <p>Capacity: <%=venue.capacity %></p>
+        <p class="fw-semibold">€ <%= venue.price %> day</p>
       </div>
     </div>
     <% end %>

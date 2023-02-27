@@ -11,23 +11,20 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 20px;
 
     .card {
-      width: 220px;
-      border: none;
+      border-style: none;
       img {
-        max-width:100%;
-        height: auto;
         border-radius: 20px;
+
       }
       h2 {
-        margin-top: 10px;
-        font-size: 24px;
+        font-size: 17px;
         font-weight: bold;
       }
       p {
-        margin-bottom: 3px;
+        font-size: 15px;
       }
     }
     // Tablets
