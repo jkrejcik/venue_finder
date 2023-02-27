@@ -1,4 +1,13 @@
 class Venue < ApplicationRecord
+  # Searching option for index ation in /venues
+  include PgSearch::Model
+
+  pg_search_scope :search_by_name_address_description,
+                  against: %i[name address description],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
+
   belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
