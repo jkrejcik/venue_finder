@@ -45,6 +45,9 @@ gem "bootsnap", require: false
 # Gem to help save secret API keys
 gem "dotenv-rails", groups: [:development, :test]
 
+# Gem for storing images in Cloudinary
+gem "cloudinary"
+
 # Use Sass to process CSS
 gem "sassc-rails"
 
