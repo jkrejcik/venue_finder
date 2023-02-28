@@ -34,9 +34,13 @@ users = [user1, user2]
 9.times do
   venue = Venue.new
   venue.user = users.sample
-
   venue.name = Faker::Company.name
   venue.address = Faker::Address.full_address
+  venue.building = Faker::Address.building_number
+  venue.street = Faker::Address.street_address
+  venue.city = Faker::Address.city
+  venue.country = Faker::Address.country
+  venue.zip = Faker::Address.zip
   venue.description = Faker::Company.catch_phrase
   venue.price = rand(50..998)
   venue.capacity = rand(200..5000)
