@@ -1,26 +1,58 @@
 <div class="container col-8">
-    <div>
-      <h1><%= @venue.name %></h1>
-    </div>
-    <div>
-        <p><%= @venue.address %></p>
-        <p><%= @venue.description %></p>
-        <p>Capacity: <%=@venue.capacity %></p>
-        <p>Price: €<%= @venue.price %></p>
-    </div>
-    <br>
-    <% if @venue.user == current_user %>
-      <div class="d-flex justify-content-between">
-        <%= link_to "Edit Venue", edit_venue_path(@venue), class: "btn btn-warning" %>
-        <%= link_to "Delete", venue_path(@venue), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-secondary" %>
+  <div class="card-trip">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
-      <br> 
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= cl_image_tag("https://res.cloudinary.com/dtke2msby/image/upload/v1677615510/development/jf3vmcat15u5gtnwns1fsdu0p6hi.jpg") %>
+        </div>
+        <div class="carousel-item">
+          <img src="https://source.unsplash.com/random/?venue" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://source.unsplash.com/random/?venue" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @venue.name %></h2>
+        <p>Description: <%= @venue.description %></p>
+        <p>Capacity: <%= @venue.capacity %></p>
+
+      </div>
+        <h2 class="card-trip-pricing">Price: €<%= @venue.price %></p></h2>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    </div>
+
+    <% if @venue.user == current_user %>
+        <div class="d-flex justify-content-between card-trip-infos">
+          <%= link_to "Edit Venue", edit_venue_path(@venue), class: "btn btn-warning" %>
+          <%= link_to "Delete", venue_path(@venue), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-secondary" %>
+        </div>
+        <br>
     <% end %>
 
-    <div class="d-flex justify-content-between">
-      <% unless @venue.user == current_user %>
-        <%= link_to "Book", new_venue_booking_path(@venue), class: "btn btn-primary" %>
-      <% end  %>
-      <%= link_to "See Reviews", venue_reviews_path(@venue), class: "btn btn-info" %>
-    </div>
+    <div class="d-flex justify-content-between card-trip-infos">
+        <%= link_to "See Reviews", venue_reviews_path(@venue), class: "btn btn-info" %>
+        <% unless @venue.user == current_user %>
+          <%= link_to "Book", new_venue_booking_path(@venue), class: "btn btn-primary" %>
+        <% end  %>
+      </div>
+  </div>
 </div>
