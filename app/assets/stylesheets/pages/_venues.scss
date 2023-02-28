@@ -1,6 +1,6 @@
 .venues {
   .search {
-    width: 400px;
+    // width: 400px;
     .form-control {
       background-color: white;
     }
@@ -14,17 +14,31 @@
     grid-gap: 20px;
 
     .card {
+      position: relative;
       border-style: none;
       img {
-        border-radius: 20px;
+        border-radius: 5px;
 
       }
       h2 {
-        font-size: 17px;
+        font-size: 20px;
         font-weight: bold;
       }
       p {
         font-size: 15px;
+      }
+
+      .card-title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .bottom-left {
+        position: absolute;
+        bottom: 6px;
+        left: 12px;
       }
     }
     // Tablets
