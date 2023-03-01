@@ -1,18 +1,40 @@
-<div class="banner">
-    <h1>Venue Finder</h1>
-    <%= link_to "Venues", venues_path, class: "btn btn-primary button_margin" %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1600349780687-6d9843b27916?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2669&q=80);">
+  <div class="container">
+    <h1>Put on your best show</h1>
+    <p class="px-2">Create unforgettable experiences for your fans at <strong>Venuefinder's</strong> unique locations</p>
+    <%= link_to "Find Venues", venues_path, class: "btn btn-primary button_margin" %>
+  </div>
 </div>
 
+<div class="container col-6 text-center">
 
-<div class="container home_page col-12">
-
-  <div class="text">
-    <p>Welcome to our marketplace website, where you can easily book a venue for your next event! Our website is the result of the hard work and collaboration of Jan, Ronan, and Jaroslav, who have developed it as part of the Le Wagon part-time Web Development bootcamp.</p>
-    <p>Our website offers a user-friendly interface that allows you to search for venues based on various criteria such as location, size and price range. You can also filter your search results to show only the venues that meet your specific requirements.</p>
-    <p>Once you have found a venue that you like, you can easily book it through our website. We offer a secure payment system that allows you to pay for your reservation using your preferred method of payment.</p>
-    <p>Whether you are planning a small gathering or a large-scale event, our marketplace website has everything you need to make your event a success. So why wait? Start browsing our listings today and find the perfect venue for your next event!</p>
+  <br>  
+  <br>
+  <div class="m-5">
+    <h4 class="text-dark">
+      Don't follow the crowd, let the crowd follow you!
+    </h4>
+    <p class="text-dark">Venuefinder connects those with beautifully undiscovered spaces with all those wanting to create memories.</p>
   </div>
+  <br>
 
+  <div class="d-flex my-5 justify-content-between align-items-center">
+    <%= image_tag("small_venue.jpeg")%>
+    <div class="p-4">
+      <h2>Find a Venue</h2>
+      <p class="text-secondary">Browse a list of the most inspiring venues on the planet</p>
+      <%= link_to "All Venues", venues_path, class: "btn btn-primary"%>
+    </div>
+  </div>
+  <br>
 
-
+  <div class="d-flex my-5 justify-content-between align-items-center">
+    <div class="p-4">
+      <h2>Add a Venue</h2>
+      <p class="text-secondary">If you own a unique setting, share it with the world...</p>
+      <%= link_to "Add venue", new_venue_path, class: "btn btn-primary"%>
+    </div>
+    <%= image_tag("unique_venue.jpeg")%>
+  </div>
+  <br>
 </div>
