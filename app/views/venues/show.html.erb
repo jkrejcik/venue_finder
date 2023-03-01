@@ -44,7 +44,7 @@
       <% if @venue.user == current_user %>
         <div class="d-flex justify-content-between">
           <%= link_to "Edit Venue", edit_venue_path(@venue), class: "btn btn-warning" %>
-          <%= link_to "Delete", venue_path(@venue), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-secondary" %>
+          <%= link_to "Delete", venue_path(@venue), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
         </div>
       <% end %>
 
