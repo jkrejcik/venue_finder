@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
+require 'open-uri'
 
 puts "Cleaning database (Users/Venues/Bookings)"
 # Once we add dependent: :destroy on User model we can skip cleaning Venue/Booking db
@@ -30,29 +31,40 @@ puts "Creating Venues"
 
 # For test purposes just first 2 users have venues assigened
 users = [user1, user2]
+buildings = ["Hotel", "Restaurant", "Conference Center", "Social Club", "Country Club", "Exhibition Venue", "Business Center"]
 
-9.times do
+3.times do
   venue = Venue.new
   venue.user = users.sample
   venue.name = Faker::Company.name
   venue.address = Faker::Address.full_address
-  venue.building = Faker::Address.building_number
+  venue.building = buildings.sample
   venue.street = Faker::Address.street_address
   venue.city = Faker::Address.city
   venue.country = Faker::Address.country
   venue.zip = Faker::Address.zip
-  venue.description = Faker::Company.catch_phrase
+  venue.description = Faker::Lorem.paragraph
   venue.price = rand(50..998)
   venue.capacity = rand(200..5000)
   # Postgrest date format yyyy-mm-dd
-  venue.available_start_date = "2023-02-18"
+  venue.available_start_date = Date.today
 
-  # Radnom end date made simple without covering all options
-  rand_month = rand(3..9)
-  rand_day = rand(10..30)
-  venue.available_end_date = "2023-0#{rand_month}-#{rand_day}"
+  # Random end date min. 15 - max.95 days in future
+  venue.available_end_date = Date.next_day(rand(15..95))
+
+  # Using regex to separate string from building type so it can be placed in http in right format
+  # With one word building type (e.g. Hotel) there is no problem, problem is with two words (e.g. Social Club)
+  # as format for unsplash must be fore case with 2 words (...random/?social
+  match = /(\w+)\W?(\w+)?/.match(venue.building.downcase)
+
+  # Adding 3 picture to each venue
+  3.time do
+    file = URI.open("https://source.unsplash.com/random/?#{match[1]}?#{match[2]}")
+    venue.photos.attach(io: file, filename: venue.name)
+  end
+
   venue.save
-  puts "Venue #{venue.id} created."
+  puts "Venue #{venue.id} created with pictures"
 end
 
 # Booking creation
@@ -62,8 +74,8 @@ booking = Booking.new
 booking.user = user3
 # Can happen that he will book same place few times
 booking.venue = Venue.find(1)
-booking.booking_start_date = "2023-03-01"
-booking.booking_end_date = "2023-03-30"
+booking.booking_start_date = Date.today
+booking.booking_end_date = Date.next_day(10)
 booking.save
 puts "Booking #{booking.id} created."
 
