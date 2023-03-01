@@ -2,6 +2,7 @@
   <div class="container">
     <h1>Put on your best show</h1>
     <p class="px-2">Create unforgettable experiences for your fans at <strong>Venuefinder's</strong> unique locations</p>
+    
     <%= link_to "Find Venues", venues_path, class: "btn btn-primary button_margin" %>
   </div>
 </div>
@@ -16,7 +17,24 @@
     </h4>
     <p class="text-dark">Venuefinder connects those with beautifully undiscovered spaces with all those wanting to create memories.</p>
   </div>
+    <div class="container">
+      <%= form_with url: venues_path, method: :get do %>
+      <div class="search my-5">
+          <div class="d-flex mx-auto col-5">
+            <%= 
+              text_field_tag :query,
+              params[:query],
+              class: "form-control"
+            %>
+            <div class="ms-2">
+              <%= submit_tag "Search", class: "btn btn-primary" %>
+            </div>
+          </div>
+      </div>
+      <% end %>
+  </div>
   <br>
+  
 
   <div class="d-flex my-5 justify-content-between align-items-center">
     <%= image_tag("small_venue.jpeg")%>
