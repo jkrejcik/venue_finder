@@ -1,42 +1,15 @@
-
-.card-trip {
-  width: 60%;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  position:absolute;
-  margin-top: 100px;
-}
-
-.card-trip > img {
-  height: 300px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+.show-page {
+  .top-line {
+    a, p {
+      color: black;
+    }
+    font-size: 15px;
+  }
+  .carousel-item {
+    height: 400px;
+  }
+  .carousel-control-next-icon {
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
 }
