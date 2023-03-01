@@ -33,7 +33,7 @@ puts "Creating Venues"
 users = [user1, user2]
 buildings = ["Hotel", "Restaurant", "Conference Center", "Social Club", "Country Club", "Exhibition Venue", "Business Center"]
 
-4.times do
+19.times do
   venue = Venue.new
   venue.user = users.sample
   venue.name = Faker::Company.name

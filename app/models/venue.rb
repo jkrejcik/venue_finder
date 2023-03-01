@@ -3,7 +3,7 @@ class Venue < ApplicationRecord
   include PgSearch::Model
 
   pg_search_scope :search_by_name_address_description,
-                  against: %i[name address description],
+                  against: %i[name address description city country],
                   using: {
                     tsearch: { prefix: true }
                   }
