@@ -12,6 +12,7 @@
           <p>End date: <em><%= booking.booking_end_date.strftime("%d %b, %Y") %></em></p>
         </div>
         <div>
+        
           <%= link_to "Cancel Booking", venue_path(booking.venue), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-warning" %>
         </div>
       </li>

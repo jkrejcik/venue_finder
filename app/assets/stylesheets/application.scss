@@ -10,7 +10,36 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/footer";
 
 body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   background-color: white;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+}
+
+@font-face {
+  font-family: 'Sofia Pro Regular';
+  src: url('Sofia\ Pro\ Regular.otf');
+}
+
+@font-face {
+  font-family: 'Sofia Pro Medium';
+  src: url('Sofia\ Pro\ Medium.otf');
+}
+
+@font-face {
+  font-family: 'Sofia Pro Light';
+  src: url('Sofia\ Pro\ Light.otf');
 }
