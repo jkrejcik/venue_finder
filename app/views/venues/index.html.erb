@@ -13,7 +13,7 @@
     <div class="">
       <div class="card">
         <% if venue.photos.attached? %>
-          <%= link_to cl_image_tag(venue.photos.first.key, class: "card-img-top", height: 250, crop: :fill), venue_path(venue) %>
+          <%= link_to cl_image_tag(venue.photos.first.key, class: "card-img-top", height: 250), venue_path(venue) %>
         <% else %>
           <%= link_to cl_image_tag("https://res.cloudinary.com/dtke2msby/image/upload/v1677529280/development/venue_img_placeholder_mtmrus.jpg", class: "card-img-top", height: 250, crop: :fill), venue_path(venue)%>
         <% end %>

@@ -33,7 +33,7 @@ puts "Creating Venues"
 users = [user1, user2]
 buildings = ["Hotel", "Restaurant", "Conference Center", "Social Club", "Country Club", "Exhibition Venue", "Business Center"]
 
-3.times do
+4.times do
   venue = Venue.new
   venue.user = users.sample
   venue.name = Faker::Company.name
@@ -43,14 +43,14 @@ buildings = ["Hotel", "Restaurant", "Conference Center", "Social Club", "Country
   venue.city = Faker::Address.city
   venue.country = Faker::Address.country
   venue.zip = Faker::Address.zip
-  venue.description = Faker::Lorem.paragraph
+  venue.description = Faker::Lorem.paragraph(sentence_count: rand(5..10))
   venue.price = rand(50..998)
   venue.capacity = rand(200..5000)
   # Postgrest date format yyyy-mm-dd
   venue.available_start_date = Date.today
 
   # Random end date min. 15 - max.95 days in future
-  venue.available_end_date = Date.next_day(rand(15..95))
+  venue.available_end_date = Date.today.next_day(rand(15..95))
 
   # Using regex to separate string from building type so it can be placed in http in right format
   # With one word building type (e.g. Hotel) there is no problem, problem is with two words (e.g. Social Club)
@@ -58,7 +58,7 @@ buildings = ["Hotel", "Restaurant", "Conference Center", "Social Club", "Country
   match = /(\w+)\W?(\w+)?/.match(venue.building.downcase)
 
   # Adding 3 picture to each venue
-  3.time do
+  3.times do
     file = URI.open("https://source.unsplash.com/random/?#{match[1]}?#{match[2]}")
     venue.photos.attach(io: file, filename: venue.name)
   end
@@ -74,8 +74,8 @@ booking = Booking.new
 booking.user = user3
 # Can happen that he will book same place few times
 booking.venue = Venue.find(1)
-booking.booking_start_date = Date.today
-booking.booking_end_date = Date.next_day(10)
+booking.booking_start_date = Date.today.next_day
+booking.booking_end_date = Date.today.next_day(10)
 booking.save
 puts "Booking #{booking.id} created."
 
