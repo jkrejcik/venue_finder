@@ -26,7 +26,7 @@
   </div>
 
 
-  <div class="container-body d-flex">
+  <div class="container-body ">
     <div class="container-body-text">
       <div class="d-flex align-items-center mb-1">
         <i class="fa-solid fa-home d-block"></i><span class="mx-2"><%= @venue.address %></span>
@@ -41,25 +41,18 @@
       <p><%= @venue.description %></p>
     </div>
 
-    <div>
-
-    </div>
-
-  </div>
-
-
-    <% if @venue.user == current_user %>
-        <div class="d-flex justify-content-between card-trip-infos">
+      <% if @venue.user == current_user %>
+        <div class="d-flex justify-content-between">
           <%= link_to "Edit Venue", edit_venue_path(@venue), class: "btn btn-warning" %>
           <%= link_to "Delete", venue_path(@venue), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-secondary" %>
         </div>
-        <br>
-    <% end %>
+      <% end %>
 
-    <div class="d-flex justify-content-between card-trip-infos">
-        <%= link_to "See Reviews", venue_reviews_path(@venue), class: "btn btn-info" %>
-        <% unless @venue.user == current_user %>
-          <%= link_to "Book", new_venue_booking_path(@venue), class: "btn btn-primary" %>
-        <% end  %>
-    </div>
+      <% unless @venue.user == current_user %>
+          <div class="d-flex justify-content-between">
+            <%= link_to "Book", new_venue_booking_path(@venue), class: "btn btn-primary" %>
+            <%= link_to "Back to venues", venues_path, class: "btn btn-secondary" %>
+          </div>
+      <% end  %>
+  </div>
 </div>
