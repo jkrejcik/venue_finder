@@ -1,17 +1,53 @@
 // Specific CSS for your home-page
-.banner{
+.banner {
+  background-size: cover;
+  background-position: center;
   text-align: center;
-  background-color: grey;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 150px 0;
 }
 
-.text{
-  text-align: left;
-  padding-top: 50px;
-  padding-bottom: 50px;
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 48px;
+  font-weight: bold;
+  font-family: "Sofia Pro Medium";
 }
 
-.button_margin{
-  margin-top: 20px;
+.banner p {
+  font-size: 24px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-family: "Sofia Pro Light";
 }
+
+p {
+  opacity: .7;
+  font-family: "Sofia Pro Light"; 
+}
+
+h4 {
+  font-family: "Sofia Pro Medium"; 
+  font-size: 28px; 
+}
+
+h2 {
+  font-family: "Sofia Pro Medium"; 
+  font-size: 24px; 
+}
+
+.banner .button {
+  font-family: "Sofia Pro Medium";
+  background-color: black;
+}
+
+.container img {
+  object-fit: cover;
+  height: 275px;
+}
+
+
+
+
