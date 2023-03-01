@@ -60,6 +60,7 @@ buildings = ["Hotel", "Restaurant", "Conference Center", "Social Club", "Country
   # Adding 3 picture to each venue
   3.times do
     file = URI.open("https://source.unsplash.com/random/?#{match[1]}?#{match[2]}")
+    sleep(2.seconds)
     venue.photos.attach(io: file, filename: venue.name)
   end
 
