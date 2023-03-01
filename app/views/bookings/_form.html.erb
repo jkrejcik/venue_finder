@@ -1,10 +1,17 @@
 <%= form_for [@venue, @booking] do |f| %>
 
-  <%= f.label :booking_start_date, min: Date.today, class: "form-label" %>:
-  <%= f.date_field :booking_start_date, class: "form-control" %>
+  <div class="d-flex justify-content-between">
+    <div class="col-4">
+      <%= f.label :booking_start_date, min: Date.today, class: "form-label" %>:
+      <%= f.date_field :booking_start_date, class: "form-control" %>
+    </div>
 
-  <%= f.label :booking_end_date, min: Date.tomorrow, class: "form-label" %>:
-  <%= f.date_field :booking_end_date, class: "form-control" %>
+    <div class="col-4">
+      <%= f.label :booking_end_date, min: Date.tomorrow, class: "form-label" %>:
+      <%= f.date_field :booking_end_date, class: "form-control" %>
+    </div>
+  </div>
 
-  <%= f.submit class: "form-control btn btn-primary" %>
+ 
+  <%= f.submit class: "form-control btn btn-primary mt-4" %>
 <% end %>
